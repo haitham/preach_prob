@@ -1,0 +1,17 @@
+hsa:815|hsa:816|hsa:817|hsa:818
+hsa:5578|hsa:5579|hsa:5582
+hsa:23624|hsa:867|hsa:868
+hsa:6776|hsa:6777
+hsa:5747
+hsa:25|hsa:27
+hsa:3725
+hsa:2002
+hsa:4609
+hsa:2002
+hsa:6776|hsa:6777
+hsa:6198|hsa:6199
+hsa:1978
+hsa:572
+hsa:2932
+hsa:1027
+hsa:1026

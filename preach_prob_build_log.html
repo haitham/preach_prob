@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>preach_prob build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>11-03-2014 at 17:14.36</u><br />
+Build ended on: <u>11-03-2014 at 17:14.38</u><p />
+<b>-------------- Build: Debug in preach_prob ---------------</b><br />
+mingw32-g++.exe -Wall -fexceptions  -g    -IC:\lemon\include  -c D:\Workspace\preach_prob\prob.cc -o obj\Debug\prob.o<br />
+In file included from D:\Workspace\preach_prob\prob.cc:25:<br />
+D:\Workspace\preach_prob\preach.h: In constructor `Polynomial::Polynomial(std::map<int, std::pair<int, int>, std::less<int>, std::allocator<std::pair<const int, std::pair<int, int> > > >&, int, int, Edges_T&)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\preach.h:150: warning: `Polynomial::targetNode' will be initialized after</font><br />
+<font color="#0000ff">D:\Workspace\preach_prob\preach.h:148: warning:   `std::map<int, std::pair<int, int>, std::less<int>, std::allocator<std::pair<const int, std::pair<int, int> > > > Polynomial::edgeTerminals'</font><br />
+<font color="#0000ff">D:\Workspace\preach_prob\preach.h:163: warning:   when initialized here</font><br />
+D:\Workspace\preach_prob\prob.cc: In constructor `STVariation::STVariation(lemon::ListDigraph&, lemon::ListDigraphBase::Node&, lemon::ListDigraphBase::Node&, lemon::ListDigraphBase::Arc&, WeightMap&)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:52: warning: `STVariation::varArcRef' will be initialized after</font><br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:45: warning:   `WeightMap STVariation::wMap'</font><br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:208: warning:   when initialized here</font><br />
+mingw32-g++.exe  -o bin\Debug\preach_prob.exe obj\Debug\prob.o<br />
+Output size is 2.37 MB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 2 seconds)</font><br />
+<font color="#0000ff">0 errors, 6 warnings</font><br />
+</tt>
+</body>
+</html>
