@@ -11,7 +11,7 @@
 				<Option object_output="obj\Debug\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="data/erbb_hsa_string.txt data/erbb_hsa_sources.txt data/erbb_hsa_targets.txt" />
+				<Option parameters="data/erbb_hsa.txt data/erbb_hsa_expr.txt data\erbb.out" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>

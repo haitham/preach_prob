@@ -50,6 +50,7 @@ class STVariation{
     ListDigraph::Node sourceRef; // reference to source in original graph
     ListDigraph::Node targetRef; // reference to target in original graph
     ListDigraph::Arc varArcRef; // Reference to the variable arc in the original graph
+    bool hasVarArc;
     double constant; // Result: constant part of the probability (a + bp)
     double coeff; // Result: coeff of p variable of the probability (a + bP)
 
@@ -150,7 +151,9 @@ class STVariation{
             changing = false;
             vector<ListDigraph::Node> elementaryNodes;
             for (ListDigraph::NodeIt node(g); node != INVALID; ++node){
-                if (node == source || node == target || node == g.source(varArc) || node == g.target(varArc))
+                if (node == source || node == target)
+                    continue;
+                if (hasVarArc && (node == g.source(varArc) || node == g.target(varArc)))
                     continue;
                 if (getNodeInDegree(node) == 1 && getNodeOutDegree(node) == 1){
                     // elementary path, mark node to be removed
@@ -196,7 +199,8 @@ class STVariation{
     void Preprocess(){
         //As a sanity check: put a crazy value for the variable edge probability
         //to make sure it is never multiplied, EVER!
-        wMap[varArc] = -1000000.0;
+        if (hasVarArc)
+            wMap[varArc] = -1000000.0;
 
         RemoveIsolatedNodes();
         CollapseELementaryPaths();
@@ -204,10 +208,20 @@ class STVariation{
     }
 
 
+    /*Constructor version where there is a variable edge*/
     STVariation(ListDigraph& _g, ListDigraph::Node& _source, ListDigraph::Node& _target, ListDigraph::Arc& _varArc, WeightMap& _wMap):
-                sourceRef(_source), targetRef(_target), varArcRef(_varArc), wMap(g){
+                sourceRef(_source), targetRef(_target), varArcRef(_varArc), wMap(g), hasVarArc(true){
         //Build the new st variation
         digraphCopy(_g, g).node(_source, source).node(_target, target).arc(_varArc, varArc).arcMap(_wMap, wMap).run();
+        //Preprocess based on the current pair
+        Preprocess();
+    }
+
+    /*Constructor version where there is no variable edge*/
+    STVariation(ListDigraph& _g, ListDigraph::Node& _source, ListDigraph::Node& _target, WeightMap& _wMap):
+                sourceRef(_source), targetRef(_target), wMap(g), hasVarArc(false){
+        //Build the new st variation
+        digraphCopy(_g, g).node(_source, source).node(_target, target).arcMap(_wMap, wMap).run();
         //Preprocess based on the current pair
         Preprocess();
     }
@@ -230,12 +244,17 @@ class STVariation{
         dfs.addSource(source);
         while(!dfs.emptyQueue()){
             ListDigraph::Arc arc = dfs.processNextArc();
-            if (arc == varArc)
+            if (hasVarArc && arc == varArc)
                 continue; // don't add the variable arc to the polynomial
             poly.AddEdge(g.id(arc), wMap[arc]);
         }
         constant = poly.xStarCoeff();
         coeff = poly.sumUncollapsed();
+        //sanity check
+        if (!hasVarArc){
+            assert(coeff == 0.0);
+            poly.checkNoTerms();
+        }
     }
 };
 
@@ -304,7 +323,7 @@ void CreateGraph(char* filename, ListDigraph& g,
 		if (!EdgeExists(g, sN, tN)){
 			ListDigraph::Arc a = g.addArc(sN, tN);
 //			cout << "edge: " << g.id(a) << endl;
-			wMap[a]=drand48();
+			wMap[a] = drand48();
 		}
 	}
 	in.close();
@@ -336,6 +355,72 @@ void GetGraphSize(ListDigraph& g, int& nodes, int& edges){
 			edges ++;
 		}
 	}
+}
+
+#define POPULATION_SIZE 50
+#define GENETIC_ROUNDS 100
+
+class Species{
+
+    /*Calculates the quality of this species based on the wMap values compared to the exprMap values*/
+/*    void calculateQuality(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap){
+        double numerator = 0.0;
+        double denominator = 0.0;
+        for (map<pair<ListDigraph::Node, ListDigraph::Node>, double>::iterator it=exprMap.begin(); it!=exprMap.end(); ++it){
+            ListDigraph::Node source = it->first.first;
+            ListDigraph::Node target = it->first.second;
+            double expr = it->second;
+            //create an STVariation and solve it
+            STVariation variation(g, source, target, wMap);
+            variation.Solve();
+            //update numerator and denomenator
+            numerator += (expr - variation.constant) * (expr - variation.constant);
+            denominator ++;
+        }
+        quality = 1.0 - sqrt(numerator) / denominator;
+    }
+*/
+    public:
+
+    WeightMap wMap;
+    double quality;
+
+    /*Construct a species by random generation*/
+    Species(ListDigraph& _g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap):wMap(_g){
+        /*
+        for (ListDigraph::ArcIt arc(g); arc != INVALID; ++arc){
+            wMap[arc] = drand48();
+        }
+        calculateQuality(g, exprMap);
+        */
+    }
+
+    double getQuality(){
+        return quality;
+    }
+};
+
+/*DOes the cross over step for the genetic algorithm*/
+void CrossOver(vector<Species>& population){
+    // Use this vector to model the preference of every species when it comes to crossover
+    vector<double> preference;
+    double sum = 0.0;
+    for (vector<Species>::iterator s=population.begin(); s!=population.end(); ++s){
+        sum += s->getQuality();
+        preference.push_back(sum);
+    }
+}
+
+/*Provides a good starting point for wMap, based on a genetic algorithm*/
+void Geneticize(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap, WeightMap& wMap){
+    // Build initial random population
+    vector<Species> population;
+    for (int i=0; i<POPULATION_SIZE; i++){
+        Species s(g, exprMap);
+        population.push_back(s);
+    }
+    for (int i=0; i<GENETIC_ROUNDS; i++){
+    }
 }
 
 
@@ -414,7 +499,11 @@ int main(int argc, char** argv) {
 	//output the results
 	ofstream out(argv[3]);
 	for (ListDigraph::ArcIt arc(g); arc != INVALID; ++arc){
-	    out << nNames[g.source(arc)] << " " << nNames[g.target(arc)] << " " << wMap[arc] << endl;
+	    if (helplessEdges[arc]){
+	        out << nNames[g.source(arc)] << " " << nNames[g.target(arc)] << " " << "UNKNOWN" << endl;
+	    } else {
+	        out << nNames[g.source(arc)] << " " << nNames[g.target(arc)] << " " << wMap[arc] << endl;
+	    }
 	}
 	out.close();
 	return 0;

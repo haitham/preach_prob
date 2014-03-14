@@ -221,6 +221,10 @@ class Polynomial{
 		// nTerms gets distroyed with content of old terms
 	}
 
+	void checkNoTerms(){
+	    assert(terms.empty());
+	}
+
 
 	// get the coeff of xStar
 	double xStarCoeff(){
