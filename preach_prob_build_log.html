@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>14-03-2014 at 12:59.46</u><br />
-Build ended on: <u>14-03-2014 at 12:59.47</u><p />
+Build started on: <u>14-03-2014 at 19:05.00</u><br />
+Build ended on: <u>14-03-2014 at 19:05.04</u><p />
 <b>-------------- Build: Debug in preach_prob ---------------</b><br />
 mingw32-g++.exe -Wall -fexceptions  -O3 -g    -IC:\lemon\include  -c D:\Workspace\preach_prob\prob.cc -o obj\Debug\prob.o<br />
 In file included from D:\Workspace\preach_prob\prob.cc:25:<br />
@@ -21,36 +21,21 @@ D:\Workspace\preach_prob\prob.cc: In constructor `STVariation::STVariation(lemon
 <font color="#0000ff">D:\Workspace\preach_prob\prob.cc:51: warning: `STVariation::targetRef' will be initialized after</font><br />
 <font color="#0000ff">D:\Workspace\preach_prob\prob.cc:45: warning:   `WeightMap STVariation::wMap'</font><br />
 <font color="#0000ff">D:\Workspace\preach_prob\prob.cc:222: warning:   when initialized here</font><br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_construct.h: In copy constructor `lemon::DefaultMap<lemon::DigraphExtender<lemon::ListDigraphBase>, lemon::ListDigraphBase::Arc, double>::DefaultMap(const lemon::DefaultMap<lemon::DigraphExtender<lemon::ListDigraphBase>, lemon::ListDigraphBase::Arc, double>&)':<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_construct.h:81:   instantiated from `void std::_Construct(_T1*, const _T2&) [with _T1 = Species, _T2 = Species]'<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_vector.h:560:   instantiated from `void std::vector<_Tp, _Alloc>::push_back(const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-D:\Workspace\preach_prob\prob.cc:420:   instantiated from here<br />
-<font color="#ff0000">C:/lemon/include/lemon/bits/vector_map.h:110: error: `lemon::VectorMap<_Graph, _Item, _Value>::VectorMap(const lemon::VectorMap<_Graph, _Item, _Value>&) [with _Graph = lemon::DigraphExtender<lemon::ListDigraphBase>, _Item = lemon::ListDigraphBase::Arc, _Value = double]' is private</font><br />
-<font color="#ff0000">C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_construct.h:81: error: within this context</font><br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc: In member function `Species& Species::operator=(const Species&)':<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc:238:   instantiated from `void std::vector<_Tp, _Alloc>::_M_insert_aux(__gnu_cxx::__normal_iterator<typename _Alloc::pointer, std::vector<_Tp, _Alloc> >, const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_vector.h:564:   instantiated from `void std::vector<_Tp, _Alloc>::push_back(const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-D:\Workspace\preach_prob\prob.cc:420:   instantiated from here<br />
-<font color="#ff0000">C:/lemon/include/lemon/bits/graph_extender.h:255: error: `lemon::DigraphExtender<Base>::ArcMap<_Value>& lemon::DigraphExtender<Base>::ArcMap<_Value>::operator=(const lemon::DigraphExtender<Base>::ArcMap<_Value>&) [with _Value = double, Base = lemon::ListDigraphBase]' is private</font><br />
-<font color="#ff0000">C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc:238: error: within this context</font><br />
-C:/lemon/include/lemon/bits/graph_extender.h: In member function `lemon::DigraphExtender<Base>::ArcMap<_Value>& lemon::DigraphExtender<Base>::ArcMap<_Value>::operator=(const CMap&) [with CMap = WeightMap, _Value = double, Base = lemon::ListDigraphBase]':<br />
-C:/lemon/include/lemon/bits/graph_extender.h:256:   instantiated from `lemon::DigraphExtender<Base>::ArcMap<_Value>& lemon::DigraphExtender<Base>::ArcMap<_Value>::operator=(const lemon::DigraphExtender<Base>::ArcMap<_Value>&) [with _Value = double, Base = lemon::ListDigraphBase]'<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc:238:   instantiated from `void std::vector<_Tp, _Alloc>::_M_insert_aux(__gnu_cxx::__normal_iterator<typename _Alloc::pointer, std::vector<_Tp, _Alloc> >, const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_vector.h:564:   instantiated from `void std::vector<_Tp, _Alloc>::push_back(const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-D:\Workspace\preach_prob\prob.cc:420:   instantiated from here<br />
-<font color="#ff0000">C:/lemon/include/lemon/bits/map_extender.h:74: error: `template<class CMap> lemon::MapExtender& lemon::MapExtender::operator=(const CMap&) [with CMap = CMap, _Map = lemon::DefaultMap<lemon::DigraphExtender<lemon::ListDigraphBase>, lemon::ListDigraphBase::Arc, double>]' is private</font><br />
-<font color="#ff0000">C:/lemon/include/lemon/bits/graph_extender.h:261: error: within this context</font><br />
-C:/lemon/include/lemon/bits/default_map.h: In member function `lemon::DefaultMap<_Graph, _Item, _Value>& lemon::DefaultMap<_Graph, _Item, _Value>::operator=(const CMap&) [with CMap = lemon::DigraphExtender<lemon::ListDigraphBase>::ArcMap<double>, _Graph = lemon::DigraphExtender<lemon::ListDigraphBase>, _Item = lemon::ListDigraphBase::Arc, _Value = double]':<br />
-C:/lemon/include/lemon/bits/map_extender.h:75:   instantiated from `lemon::MapExtender<_Map>& lemon::MapExtender<_Map>::operator=(const CMap&) [with CMap = lemon::DigraphExtender<lemon::ListDigraphBase>::ArcMap<double>, _Map = lemon::DefaultMap<lemon::DigraphExtender<lemon::ListDigraphBase>, lemon::ListDigraphBase::Arc, double>]'<br />
-C:/lemon/include/lemon/bits/graph_extender.h:261:   instantiated from `lemon::DigraphExtender<Base>::ArcMap<_Value>& lemon::DigraphExtender<Base>::ArcMap<_Value>::operator=(const CMap&) [with CMap = WeightMap, _Value = double, Base = lemon::ListDigraphBase]'<br />
-C:/lemon/include/lemon/bits/graph_extender.h:256:   instantiated from `lemon::DigraphExtender<Base>::ArcMap<_Value>& lemon::DigraphExtender<Base>::ArcMap<_Value>::operator=(const lemon::DigraphExtender<Base>::ArcMap<_Value>&) [with _Value = double, Base = lemon::ListDigraphBase]'<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc:238:   instantiated from `void std::vector<_Tp, _Alloc>::_M_insert_aux(__gnu_cxx::__normal_iterator<typename _Alloc::pointer, std::vector<_Tp, _Alloc> >, const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-C:/mingw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_vector.h:564:   instantiated from `void std::vector<_Tp, _Alloc>::push_back(const _Tp&) [with _Tp = Species, _Alloc = std::allocator<Species>]'<br />
-D:\Workspace\preach_prob\prob.cc:420:   instantiated from here<br />
-<font color="#ff0000">C:/lemon/include/lemon/bits/vector_map.h:136: error: `template<class CMap> lemon::VectorMap& lemon::VectorMap::operator=(const CMap&) [with CMap = CMap, _Graph = lemon::DigraphExtender<lemon::ListDigraphBase>, _Item = lemon::ListDigraphBase::Arc, _Value = double]' is private</font><br />
-<font color="#ff0000">C:/lemon/include/lemon/bits/default_map.h:174: error: within this context</font><br />
-<font color="#a00000">Process terminated with status 1 (0 minutes, 1 seconds)</font><br />
-<font color="#a00000">8 errors, 9 warnings</font><br />
+D:\Workspace\preach_prob\prob.cc: In function `int rangeIndex(double, std::vector<double, std::allocator<double> >&)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:461: warning: comparison between signed and unsigned integer expressions</font><br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:465: warning: converting to `int' from `double'</font><br />
+D:\Workspace\preach_prob\prob.cc: In function `Species* removeTopSpecies(std::vector<Species*, std::allocator<Species*> >&)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:494: warning: comparison between signed and unsigned integer expressions</font><br />
+D:\Workspace\preach_prob\prob.cc: In function `Species* removeRandomSpeciesQualityBias(std::vector<Species*, std::allocator<Species*> >, double)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:509: warning: comparison between signed and unsigned integer expressions</font><br />
+D:\Workspace\preach_prob\prob.cc: In function `void Select(std::vector<Species*, std::allocator<Species*> >&)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:544: warning: comparison between signed and unsigned integer expressions</font><br />
+D:\Workspace\preach_prob\prob.cc: In function `void Geneticize(lemon::ListDigraph&, std::map<std::pair<lemon::ListDigraphBase::Node, lemon::ListDigraphBase::Node>, double, std::less<std::pair<lemon::ListDigraphBase::Node, lemon::ListDigraphBase::Node> >, std::allocator<std::pair<const std::pair<lemon::ListDigraphBase::Node, lemon::ListDigraphBase::Node>, double> > >&, WeightMap&)':<br />
+<font color="#0000ff">D:\Workspace\preach_prob\prob.cc:569: warning: comparison between signed and unsigned integer expressions</font><br />
+mingw32-g++.exe  -o bin\Debug\preach_prob.exe obj\Debug\prob.o<br />
+Output size is 2.18 MB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 4 seconds)</font><br />
+<font color="#0000ff">0 errors, 15 warnings</font><br />
 </tt>
 </body>
 </html>

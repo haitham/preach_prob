@@ -357,15 +357,30 @@ void GetGraphSize(ListDigraph& g, int& nodes, int& edges){
 	}
 }
 
+double minimum(double a, double b){
+    return a < b ? a : b;
+}
+
+double maximum(double a, double b){
+    return a > b ? a : b;
+}
+
 #define POPULATION_SIZE 50
 #define GENETIC_ROUNDS 100
+#define MUTATION_RATE 0.01
+#define TOP_PRESERVED 5
 
 class Species{
 
+    WeightMap wMap; // edges probabilities
+    double quality; // 1- norm(R-C)
+    double gap; // Sum(R-C)
+
     /*Calculates the quality of this species based on the wMap values compared to the exprMap values*/
-/*    void calculateQuality(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap){
+    void calculateQuality(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap){
         double numerator = 0.0;
         double denominator = 0.0;
+        gap = 0.0;
         for (map<pair<ListDigraph::Node, ListDigraph::Node>, double>::iterator it=exprMap.begin(); it!=exprMap.end(); ++it){
             ListDigraph::Node source = it->first.first;
             ListDigraph::Node target = it->first.second;
@@ -376,50 +391,183 @@ class Species{
             //update numerator and denomenator
             numerator += (expr - variation.constant) * (expr - variation.constant);
             denominator ++;
+            //update gap
+            gap = gap + variation.constant - expr;
         }
         quality = 1.0 - sqrt(numerator) / denominator;
     }
-*/
+
     public:
-
-    WeightMap wMap;
-    double quality;
-
-    /*Construct a species by random generation*/
-    Species(ListDigraph& _g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap):wMap(_g){
-        /*
-        for (ListDigraph::ArcIt arc(g); arc != INVALID; ++arc){
-            wMap[arc] = drand48();
-        }
-        calculateQuality(g, exprMap);
-        */
-    }
 
     double getQuality(){
         return quality;
     }
+    double getProb(ListDigraph::Arc& arc){
+        return wMap[arc];
+    }
+    double getGap(){
+        return gap;
+    }
+
+    /*Construct a species by random generation*/
+    Species(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap):wMap(g){
+        for (ListDigraph::ArcIt arc(g); arc != INVALID; ++arc){
+            wMap[arc] = drand48();
+        }
+        calculateQuality(g, exprMap);
+    }
+
+    /*Constructs a species by mating two parents
+    Does the core crossover step: selecting elements from parents
+    And the mutation step, randomly change the probability of a small fraction of the edges*/
+    Species(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap,
+            Species* father, Species* mother):wMap(g){
+        //Loop over all edges, select one of the parnets' probabilities for it
+        for (ListDigraph::ArcIt arc(g); arc!=INVALID; ++arc){
+            double fGap = father -> getGap();
+            double mGap = mother -> getGap();
+            if ((fGap == 0 && mGap == 0) || fGap * mGap < 0){ // No preference for either mother or father
+                // just select on of them randomly biased by quality
+                double fQuality = father -> getQuality();
+                double mQuality = mother -> getQuality();
+                if ((fQuality + mQuality)*drand48() <= fQuality){
+                    //father wins
+                    wMap[arc] = father -> getProb(arc);
+                } else {
+                    //mother wins
+                    wMap[arc] = mother -> getProb(arc);
+                }
+            } else if (fGap + mGap > 0){ // both gaps are +ve (or one is 0), preference is for the lower of both
+                wMap[arc] = minimum(father -> getProb(arc), mother -> getProb(arc));
+            } else { // both gaps are -ve (or one is 0), preference is for the higher of both
+                wMap[arc] = maximum(father -> getProb(arc), mother -> getProb(arc));
+            }
+        }
+        mutate(g);
+        calculateQuality(g, exprMap);
+    }
+
+    /*Mutation: For each edge, with a probability of MUTATION_RATE, change the probability to a new random one*/
+    void mutate(ListDigraph& g){
+        for (ListDigraph::ArcIt arc(g); arc!=INVALID; ++arc){
+            if (drand48() <= MUTATION_RATE)
+                wMap[arc] = drand48();
+        }
+    }
 };
 
-/*DOes the cross over step for the genetic algorithm*/
-void CrossOver(vector<Species>& population){
+/*Searches for a double in a sortted list, returns the index of the first element that exceeds the given double*/
+int rangeIndex(double key, vector<double>& list){
+    for(int i=0; i<list.size(); i++){
+        if (list[i] > key)
+            return i;
+    }
+    return -1.0;
+}
+
+
+/*Does the cross over step and the mutation step for the genetic algorithm*/
+void CrossOverAndMutate(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap, vector<Species*>& population){
     // Use this vector to model the preference of every species when it comes to crossover
-    vector<double> preference;
+    // We select two species randomly, biased by their preference (quality)
+    vector<double> preference(population.size());
     double sum = 0.0;
-    for (vector<Species>::iterator s=population.begin(); s!=population.end(); ++s){
-        sum += s->getQuality();
+    for (vector<Species*>::iterator s=population.begin(); s!=population.end(); ++s){
+        sum += (*s)->getQuality();
         preference.push_back(sum);
     }
+    int fatherIndex = rangeIndex(sum * drand48(), preference);
+    int motherIndex = rangeIndex(sum * drand48(), preference);
+    //make sure they're different
+    while (motherIndex == fatherIndex){
+        motherIndex = rangeIndex(sum * drand48(), preference);
+    }
+    //create a new child from father and mother
+    Species* child = new Species(g, exprMap, population[fatherIndex], population[motherIndex]);
+    population.push_back(child);
+}
+
+/*removes the maximum-quality element and returns it*/
+Species* removeTopSpecies(vector<Species*>& population){
+    double maxQuality = -1.0;
+    int maxIndex = -1;
+    for (int i=0; i<population.size(); i++){
+        if (population[i] -> getQuality() > maxQuality){
+            maxQuality = population[i] -> getQuality();
+            maxIndex = i;
+        }
+    }
+    Species* result = population[maxIndex];
+    population.erase(population.begin() + maxIndex);
+    return result;
+}
+
+/*removes one species at random (biased with quality) and returns it*/
+Species* removeRandomSpeciesQualityBias(vector<Species*> population, double randMax){
+    double coin = randMax * drand48();
+    double sum = 0.0;
+    for (int i=0; i<population.size(); i++){
+        Species* current = population[i];
+        sum += current -> getQuality();
+        if (sum > coin){
+            population.erase(population.begin() + i);
+            return current;
+        }
+    }
+    return NULL;
+}
+
+// Utility: sums all quality values of population
+double sumQuality(vector<Species*>& population){
+    double sum = 0.0;
+    for (vector<Species*>::iterator it=population.begin(); it!=population.end(); ++it){
+        sum += (*it) -> getQuality();
+    }
+    return sum;
+}
+
+/*Does the selection step of the genetic algorithm*/
+void Select(vector<Species*>& population){
+    vector<Species*> selection;
+    //first: select TOP_PRESERVED
+    for (int i=0; i<TOP_PRESERVED; i++){
+        selection.push_back(removeTopSpecies(population));
+    }
+    //Now we select (POPULATION_SIZE - TOP_PRESERVED) randomly biased with quality
+    double randMax = sumQuality(population);
+    for (int i=0; i<POPULATION_SIZE-TOP_PRESERVED; i++){
+        Species* selected = removeRandomSpeciesQualityBias(population, randMax);
+        randMax -= selected -> getQuality();
+        population.push_back(selected);
+    }
+    //destroy the rest of the poplation and swap it with selection
+    for (int i=0; i<population.size(); i++){
+        delete population[i];
+    }
+    population.swap(selection);
 }
 
 /*Provides a good starting point for wMap, based on a genetic algorithm*/
 void Geneticize(ListDigraph& g, map<pair<ListDigraph::Node, ListDigraph::Node>, double>& exprMap, WeightMap& wMap){
     // Build initial random population
-    vector<Species> population;
+    vector<Species*> population(POPULATION_SIZE);
     for (int i=0; i<POPULATION_SIZE; i++){
-        Species s(g, exprMap);
-        population.push_back(s);
+        population.push_back(new Species(g, exprMap));
     }
+    // Do the genetic rounds of crossover, mutate and select
     for (int i=0; i<GENETIC_ROUNDS; i++){
+        cout << "Genetic Round: " << i << endl;
+        CrossOverAndMutate(g, exprMap, population);
+        Select(population);
+    }
+    //select the top quality as a result
+    Species* top = removeTopSpecies(population);
+    for (ListDigraph::ArcIt arc(g); arc!=INVALID; ++arc){
+        wMap[arc] = top->getProb(arc);
+    }
+    // dealocate the species. Not needed anymore
+    for (int i=0; i<population.size(); i++){
+        delete population[i];
     }
 }
 
@@ -448,6 +596,11 @@ int main(int argc, char** argv) {
     //Read expression
     map<pair<ListDigraph::Node, ListDigraph::Node>, double> exprMap;
     ReadExpression(g, argv[2], nNames, nodeMap, exprMap);
+
+    //First: Do the genetic algorithm
+    Geneticize(g, exprMap, wMap);
+
+	//Then Hill climbing
 
 	//This map will keep info about edges that don't relate to any s-t graph
 	map<ListDigraph::Arc, bool> helplessEdges;
