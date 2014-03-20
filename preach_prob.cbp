@@ -13,7 +13,6 @@
 				<Option compiler="gcc" />
 				<Option parameters="data/erbb_hsa.txt data/erbb_hsa_expr.txt data\erbb.out" />
 				<Compiler>
-					<Add option="-O3" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>

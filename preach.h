@@ -14,8 +14,11 @@
 
 #include "Stl.h"
 
+
 #define MAX_NODES 512
 #define MAX_EDGES 1024
+
+//#include "extensions.h"
 
 // Uncomment the next macro if detailed statistics of execution are needed
 //#define STATISTICS
