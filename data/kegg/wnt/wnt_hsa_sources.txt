@@ -1,0 +1,14 @@
+hsa:64840
+hsa:6422|hsa:6423|hsa:6424|hsa:6425
+hsa:9350
+hsa:22943|hsa:27121|hsa:27123
+hsa:85407|hsa:85409
+hsa:51384|hsa:54361|hsa:7471|hsa:7472|hsa:7473|hsa:7474|hsa:7475|hsa:7476|hsa:7477|hsa:7478|hsa:7479|hsa:7480|hsa:7481|hsa:7482|hsa:7483|hsa:7484|hsa:80326|hsa:81029|hsa:89780
+hsa:57216|hsa:81839
+hsa:7474|hsa:81029
+hsa:22943|hsa:27121|hsa:27123
+hsa:80319
+hsa:5663
+hsa:5566|hsa:5567|hsa:5568|hsa:5613
+hsa:6885
+hsa:7157
