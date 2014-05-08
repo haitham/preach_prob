@@ -632,7 +632,7 @@ int main(int argc, char** argv) {
     ReadExpression(g, argv[2], nNames, nodeMap, exprMap);
 
     //First: Do the genetic algorithm
-    //Geneticize(g, exprMap, wMap);
+    Geneticize(g, exprMap, wMap);
 
 	//Then Hill climbing
 

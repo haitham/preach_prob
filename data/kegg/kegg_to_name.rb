@@ -6,14 +6,14 @@ network = ARGV[0]
 def translate fin, fout
 	until (line = fin.gets).nil?
 		node = line.strip
-		next if node.empty? or @done[node]
-		@done[node] = true
-		fout.print "#{node} "
-		print "--"
-		fout.puts node.split("|").map{ |id|
+		next if node.empty?
+		node.split("|").each do |kegg|
+			next if @done[kegg]
+			@done[kegg] = true
+			fout.puts "#{kegg} #{Net::HTTP.get(URI.parse "http://rest.kegg.jp/get/#{kegg}").split("\n").select{|l| l =~ /^NAME/}.first.strip.gsub("NAME", "").gsub(/\s+/, "").split(",").uniq.join("|")}"
 			print "."
-			Net::HTTP.get(URI.parse "http://rest.kegg.jp/get/#{id}").split("\n").select{|l| l =~ /^NAME/}.first.strip.delete("NAME").delete(" ").split(",")
-		}.flatten.uniq.join("|")
+		end
+		print "--"
 	end
 end
 
