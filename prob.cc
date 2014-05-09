@@ -661,10 +661,10 @@ int main(int argc, char** argv) {
                 double expr = it->second;
                 //create an STVariation and solve it
                 STVariation variation(g, source, target, arc, wMap);
-                if (variation.hasVarArc){
+                if (variation.hasVarArc)
                     related = true;
+                else
                     continue;
-                }
                 variation.Solve();
 
                 //update numerator and denomenator
