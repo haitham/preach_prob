@@ -119,6 +119,8 @@ class STVariation{
 
         // Erase all bad nodes
         FOREACH_STL(node, badNodes){
+            if (hasVarArc && (node == g.source(varArc) || node == g.target(varArc)))
+                hasVarArc = false;
             g.erase(node);
         }END_FOREACH;
     }
@@ -652,12 +654,17 @@ int main(int argc, char** argv) {
                 continue;
             double numerator = 0.0;
             double denominator = 0.0;
+            bool related = false;
             for (map<pair<ListDigraph::Node, ListDigraph::Node>, double>::iterator it=exprMap.begin(); it!=exprMap.end(); ++it){
                 ListDigraph::Node source = it->first.first;
                 ListDigraph::Node target = it->first.second;
                 double expr = it->second;
                 //create an STVariation and solve it
                 STVariation variation(g, source, target, arc, wMap);
+                if (variation.hasVarArc){
+                    related = true;
+                    continue;
+                }
                 variation.Solve();
 
                 //update numerator and denomenator
@@ -665,7 +672,7 @@ int main(int argc, char** argv) {
                 denominator += variation.coeff * variation.coeff;
             }
             //If the edge turns out to be helpless (not related to any s-t, record it)
-            if (denominator == 0.0){
+            if (!related){
                 helplessEdges[arc] = true;
                 continue;
             }

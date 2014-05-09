@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1395268004 source:d:\workspace\preach_prob\prob.cc
+1399647137 source:d:\workspace\preach_prob\prob.cc
 	<iostream>
 	<fstream>
 	<map>
 	<assert.h>
 	<ctime>
-	<time.h>
+	<sys/time.h>
 	<cmath>
 	<stdlib.h>
 	"preach.h"
