@@ -693,7 +693,7 @@ int main(int argc, char** argv) {
                 newProb = 0.0;
             else if (newProb > 1.0)
                 newProb = 1.0;
-            if (newProb > wMap[arc] + 0.00001 || newProb < wMap[arc] - 0.00001){
+            if (newProb > wMap[arc] + 0.001 || newProb < wMap[arc] - 0.001){
                 changing = true;
                 changeSum += abs(wMap[arc] - newProb);
                 wMap[arc] = newProb;
