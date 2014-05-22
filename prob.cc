@@ -616,8 +616,10 @@ int main(int argc, char** argv) {
 	// initialize srand
     timeval time;
     gettimeofday(&time,NULL);
-    cout << "random seed = " << (time.tv_sec * 1000) + (time.tv_usec / 1000) << endl;
-    srand48((time.tv_sec * 1000) + (time.tv_usec / 1000));
+    long int randseed = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+    cout << "random seed = " << randseed << endl;
+    srand48(randseed);
+    //srand48(1);
 
     ListDigraph g;
 	WeightMap wMap(g); // keeps track of weights
@@ -641,7 +643,9 @@ int main(int argc, char** argv) {
 	//This map will keep info about edges that don't relate to any s-t graph
 	map<ListDigraph::Arc, bool> helplessEdges;
 
-	// Do the following until nothing changes
+	int dummycount = 0;
+
+    // Do the following until nothing changes
 	bool changing = true;
 	while (changing){
 	    changing = false;
@@ -665,7 +669,14 @@ int main(int argc, char** argv) {
                     related = true;
                 else
                     continue;
-                variation.Solve();
+
+                dummycount ++;
+                try{
+                    variation.Solve();
+                }catch(int e){
+                    cout << "Exception " << e << " at count: " << dummycount << " and randseed: " << randseed << endl;
+                    return 1;
+                }
 
                 //update numerator and denomenator
                 numerator += variation.coeff * (expr - variation.constant);

@@ -21,7 +21,7 @@
 				<Option object_output="obj\Release\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="data/mapk_hsa.txt data/mapk_hsa_expr.txt data\mapk.out" />
+				<Option parameters="data/wnt_hsa.txt data/wnt_hsa_expr.txt data/wnt.out" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>

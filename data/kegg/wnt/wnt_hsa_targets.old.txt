@@ -1,0 +1,13 @@
+hsa:51701
+hsa:4609
+hsa:3725
+hsa:8061
+hsa:595|hsa:894|hsa:896
+hsa:5467
+hsa:4316
+hsa:10725|hsa:4772|hsa:4773|hsa:4775|hsa:4776
+hsa:5599|hsa:5601|hsa:5602
+hsa:6093|hsa:9475
+hsa:815|hsa:816|hsa:817|hsa:818
+hsa:5578|hsa:5579|hsa:5582
+hsa:23291|hsa:8945

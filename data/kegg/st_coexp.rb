@@ -52,7 +52,7 @@ def pearson x, y
 	numerator = [x.map{|i| i-xbar}, y.map{|i| i-ybar}].transpose.map{|pair| pair.reduce(:*)}.reduce(:+)
 	denomerator = Math.sqrt(x.map{|i| (i-xbar)*(i-xbar)}.reduce(:+)) * Math.sqrt(y.map{|i| (i-ybar)*(i-ybar)}.reduce(:+))
 	corr = (numerator/denomerator).abs
-	raise "pearson value out of bounds" if corr > 1.0
+	raise "pearson value out of bounds: #{corr}" if corr > 1.0000001
 	corr
 end
 

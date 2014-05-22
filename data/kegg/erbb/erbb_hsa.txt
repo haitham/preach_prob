@@ -3,7 +3,7 @@ hsa:5335|hsa:5336 hsa:5578|hsa:5579|hsa:5582
 hsa:23533|hsa:5290|hsa:5291|hsa:5293|hsa:5294|hsa:5295|hsa:5296|hsa:8503 hsa:10000|hsa:207|hsa:208
 hsa:1950 hsa:1956
 hsa:7039 hsa:1956
-hsa:374|hsa:727738 hsa:1956
+hsa:374 hsa:1956
 hsa:1839 hsa:1956
 hsa:1839 hsa:2066
 hsa:2069 hsa:1956
