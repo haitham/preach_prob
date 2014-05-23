@@ -11,3 +11,9 @@ hsa:6093|hsa:9475
 hsa:815|hsa:816|hsa:817|hsa:818
 hsa:5578|hsa:5579|hsa:5582
 hsa:23291|hsa:8945
+hsa:51384|hsa:54361|hsa:7471|hsa:7472|hsa:7473|hsa:7474|hsa:7475|hsa:7476|hsa:7477|hsa:7478|hsa:7479|hsa:7480|hsa:7481|hsa:7482|hsa:7483|hsa:7484|hsa:80326|hsa:81029|hsa:89780
+hsa:6477
+hsa:1454
+hsa:5515|hsa:5516|hsa:5518|hsa:5519|hsa:5525|hsa:5526|hsa:5527|hsa:5528|hsa:5529
+hsa:1457|hsa:1459|hsa:1460
+hsa:57216|hsa:81839
