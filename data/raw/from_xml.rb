@@ -7,7 +7,7 @@ ARGV.each do |filename|
 	xml["pathway"]["entry"].each do |e|
 		if e["name"] == "undefined"
 			ids[e["id"]] = e["component"].map{|c| ids[c["id"]]}.join "|"
-		elsif e["name"] =~ /hsa/
+		elsif e["name"] =~ /(hsa)|(ko)|(cpd)/
 			ids[e["id"]] = e["name"].split.join "|"
 		else
 			raise "Undefined entry name: #{e["name"]}"

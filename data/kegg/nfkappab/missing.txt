@@ -1,0 +1,3 @@
+nfkappab/nfkappab_hsa_targets.txt:hsa:6885|hsa:10454|hsa:23118|hsa:257397: hsa:257397
+nfkappab/nfkappab_hsa_targets.txt:hsa:84433: hsa:84433
+nfkappab/nfkappab_hsa_targets.txt:hsa:388372|hsa:6351|hsa:9560: hsa:388372,hsa:9560

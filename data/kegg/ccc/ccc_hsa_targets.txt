@@ -1,0 +1,15 @@
+hsa:2149
+hsa:2153
+hsa:2157
+hsa:2153|hsa:2159
+hsa:5329
+hsa:720|hsa:721
+hsa:735
+hsa:718|hsa:629
+hsa:715
+hsa:728
+hsa:719
+hsa:1380
+hsa:1378
+hsa:623|hsa:624
+cpd:C00290

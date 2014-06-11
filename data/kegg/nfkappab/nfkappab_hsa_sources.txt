@@ -1,0 +1,15 @@
+hsa:695|hsa:29760
+hsa:929
+hsa:959
+hsa:8600
+hsa:4049|hsa:4050
+hsa:8740
+hsa:5588
+hsa:5579
+hsa:6885
+hsa:7535
+hsa:6850
+hsa:1457|hsa:1459|hsa:1460
+hsa:4790
+hsa:5971|hsa:4791
+hsa:7706

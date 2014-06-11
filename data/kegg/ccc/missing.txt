@@ -1,0 +1,4 @@
+ccc/ccc_hsa_sources.txt:hsa:716|hsa:715|hsa:712|hsa:713|hsa:714: hsa:714
+ccc/ccc_hsa_sources.txt:hsa:720|hsa:721|hsa:717: hsa:721
+ccc/ccc_hsa_targets.txt:hsa:720|hsa:721: hsa:721
+ccc/ccc_hsa_targets.txt:cpd:C00290: cpd:C00290

@@ -1,0 +1,14 @@
+hsa:6772|hsa:6773|hsa:6774|hsa:6777
+hsa:5566|hsa:5567|hsa:5568|hsa:5613
+hsa:5594|hsa:5595
+hsa:4790|hsa:5970
+hsa:2931|hsa:2932
+hsa:5058
+hsa:7454|hsa:8976
+hsa:6093|hsa:9475
+hsa:5829
+hsa:1398|hsa:1399
+cpd:C01245
+hsa:56288|hsa:5590|hsa:7074
+hsa:653361
+hsa:2309
