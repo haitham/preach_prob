@@ -1,0 +1,8 @@
+cellcycle/cellcycle_hsa_sources.txt:hsa:10971|hsa:7529|hsa:7531|hsa:7532|hsa:7533|hsa:7534: hsa:7532
+cellcycle/cellcycle_hsa_sources.txt:hsa:494551|hsa:7465: hsa:494551
+cellcycle/cellcycle_hsa_sources.txt:hsa:10393|hsa:246184|hsa:25847|hsa:29882|hsa:29945|hsa:51433|hsa:51434|hsa:51529|hsa:64682|hsa:8697|hsa:8881|hsa:996|hsa:991: hsa:246184,hsa:29945,hsa:51434,hsa:51529
+cellcycle/cellcycle_hsa_sources.txt:hsa:701|hsa:10459|hsa:4085|hsa:9184: hsa:10459
+cellcycle/cellcycle_hsa_targets.txt:hsa:85417|hsa:891|hsa:9133: hsa:85417
+cellcycle/cellcycle_hsa_targets.txt:hsa:10459|hsa:4085: hsa:10459
+cellcycle/cellcycle_hsa_targets.txt:hsa:10393|hsa:246184|hsa:25847|hsa:29882|hsa:29945|hsa:51433|hsa:51434|hsa:51529|hsa:64682|hsa:8697|hsa:8881|hsa:996: hsa:246184,hsa:29945,hsa:51434,hsa:51529
+cellcycle/cellcycle_hsa_targets.txt:hsa:27127|hsa:8243|hsa:9126|hsa:10274|hsa:10735|hsa:5885: hsa:27127

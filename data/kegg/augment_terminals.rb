@@ -4,11 +4,14 @@
 
 def load_list filename
 	list = []
-	open filename do |f|
-		until (line = f.gets).nil?
-			next if line.strip.empty?
-			list << line.strip
+	begin
+		open filename do |f|
+			until (line = f.gets).nil?
+				next if line.strip.empty?
+				list << line.strip
+			end
 		end
+	rescue Errno::ENOENT
 	end
 	list
 end

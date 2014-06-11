@@ -1,0 +1,5 @@
+p53/p53_hsa_targets.txt:hsa:983|hsa:85417|hsa:891|hsa:9133: hsa:85417
+p53/p53_hsa_targets.txt:hsa:51246: hsa:51246
+p53/p53_hsa_targets.txt:hsa:50484|hsa:6241: hsa:50484
+p53/p53_hsa_targets.txt:hsa:143686|hsa:27244|hsa:83667: hsa:143686,hsa:83667
+p53/p53_hsa_targets.txt:hsa:64326: hsa:64326

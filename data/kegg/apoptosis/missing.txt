@@ -1,0 +1,3 @@
+apoptosis/apoptosis_hsa_sources.txt:hsa:5530|hsa:5532|hsa:5533|hsa:5534|hsa:5535: hsa:5535
+apoptosis/apoptosis_hsa_sources.txt:hsa:11213|hsa:3654|hsa:3656|hsa:51135: hsa:3656
+apoptosis/apoptosis_hsa_targets.txt:hsa:11213|hsa:3654|hsa:3656|hsa:51135|hsa:4615: hsa:3656
