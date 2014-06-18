@@ -41,6 +41,9 @@ Dir.glob("#{dataset}/*").select{|f| File.directory? f}.map{|f| f.split("/").last
 
 end
 
+open("#{dataset}/col_labels.out"){|f| f.puts col_labels}
+open("#{dataset}/row_labels.out"){|f| f.puts row_labels}
+
 open "#{dataset}/centralgram.m", "w" do |fout|
 	fout.puts "RowLabels = {#{row_labels}}"
 	fout.puts "ColumnLabels = {#{col_labels}}"
