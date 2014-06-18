@@ -21,7 +21,7 @@
 				<Option object_output="obj\Release\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="data/kegg/wnt/wnt_hsa.txt data/kegg/wnt/coexp_ETV6_RUNX1.txt data/kegg/wnt/prob_ETV6_RUNX1.out" />
+				<Option parameters="data/kegg/nfkappab/nfkappab_hsa.txt data/kegg/nfkappab/coexp_ETV6_RUNX1.txt data/kegg/nfkappab/prob_ETV6_RUNX1.out" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
