@@ -1,0 +1,8 @@
+Subtype        apoptosis      cellcycle      p53            ccc            chemokine      nfkappab       erbb           wnt            
+ETV6_RUNX1     7              0              0              2              0              3              1              0              
+Hyperdiploid   9              0              0              2              0              0              0              4              
+Hypo           2              11             4              7              6              12             4              4              
+MLL            1              3              5              0              13             2              0              1              
+Ph             3              8              4              1              6              9              0              2              
+T-ALL          2              8              7              3              0              2              16             2              
+TCF3-PBX1      9              1              7              15             1              7              0              12             

@@ -45,6 +45,7 @@ typenames.keys.each do |type|
 	genes = {}
 	probes.each do |p, v|
 		gene = name_map[p]
+		next if gene.nil?
 		genes[gene] = [] if genes[gene].nil?
 		genes[gene] << v
 	end

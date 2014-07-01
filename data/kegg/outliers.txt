@@ -1,0 +1,114 @@
+apoptosis
+---------
+H.     BIRC8    -->    CASP9     Ph
+L.     CASP7    -->     DFFA     Hyperdiploid
+L.     CASP10   -->    CASP3     Hyperdiploid
+L.     NFKB1    -->     BCL2     Hyperdiploid
+L.     CASP12   -->    CASP3     T-ALL
+H.     BID      -->     CYCS     MLL
+L.     IL3      -->   CSF2RB     Hyperdiploid
+L.     NGF      -->    NTRK1     Hypo
+H.     BIRC8    -->    CASP3     Ph
+L.     FASLG    -->      FAS     T-ALL
+L.     NFKB1    -->    BIRC8     T-ALL
+
+cellcycle
+---------
+L.     RBL1     -->      MYC     Hypo
+H.     SMAD4    -->      MYC     TCF3-PBX1
+L.     CHEK1    -->   CDC25A     T-ALL
+L.     CDK2     -->   CDKN1B     Hypo
+H.     CHEK1    -->     TP53     MLL
+L.     GADD45G  -->     PCNA     Hypo
+L.     PLK1     -->   PKMYT1     Hypo
+L.     PCNA     -->     CDK4     Hypo
+L.     ESPL1    -->    SMC1B     T-ALL
+L.     CDC6     -->     ORC3     T-ALL
+H.     CDKN1A   -->     CDK2     Ph
+L.     SMAD4    -->   CDKN2B     T-ALL
+
+p53
+---
+L.     SIAH1    -->     CYCS     Ph
+L.     CYCS     -->    CASP9     T-ALL
+L.     CDKN1A   -->     CDK2     Ph
+L.     TP53     -->    ZMAT3     TCF3-PBX1
+
+ccc
+---
+L.     PLAU     -->      PLG     Hyperdiploid
+L.     F2       -->     THBD     ETV6_RUNX1
+L.     C6       -->       C7     ETV6_RUNX1
+L.     TFPI     -->       F3     ETV6_RUNX1
+L.     MBL2     -->    MASP2     Ph
+L.     C5       -->       C6     Ph
+L.     SERPINE1 -->     PLAT     ETV6_RUNX1
+H.     PROS1    -->       F2     MLL
+L.     SERPINC1 -->       F9     Hypo
+L.     F2       -->      F11     MLL
+L.     PLAT     -->      PLG     Hypo
+
+chemokine
+---------
+L.     PIK3R5   -->     AKT3     Hyperdiploid
+L.     FGR      -->     PTK2     Ph
+L.     FGR      -->   PIK3R5     Ph
+L.     RAF1     -->   MAP2K1     Hyperdiploid
+L.     SOS1     -->     HRAS     Hyperdiploid
+L.     FGR      -->      ITK     MLL
+L.     GNAI1    -->      FGR     Hyperdiploid
+L.     PIK3R5   -->     PTK2     MLL
+L.     FGR      -->    PTK2B     Ph
+L.     GNB5     -->   PIK3R5     TCF3-PBX1
+L.     FGR      -->     SHC2     MLL
+L.     VAV3     -->     RHOA     Hyperdiploid
+L.     VAV3     -->    CDC42     Hypo
+L.     GRB2     -->     SOS1     Hyperdiploid
+
+nfkappab
+--------
+L.     TNFSF13B --> TNFRSF13C     T-ALL
+L.     TRADD    -->   MAP3K7     Ph
+L.     NFKB1    -->      TNF     MLL
+H.     RIPK1    -->   MAP3K7     Ph
+L.     IKBKB    -->   NFKBIA     Hypo
+L.     LAT      -->    PLCG1     Hypo
+L.     IL1B     -->    IL1R1     Hypo
+L.     TIRAP    -->    IRAK1     Hyperdiploid
+L.     TLR4     -->   TICAM2     T-ALL
+L.     TNFSF11  --> TNFRSF11A     Ph
+L.     CD14     -->     TLR4     Ph
+L.     TRAF2    -->      BTK     Hypo
+L.     BIRC2    -->    RIPK1     Hypo
+L.     RELB     --> TNFSF13B     ETV6_RUNX1
+L.     TLR4     -->    TIRAP     Ph
+
+erbb
+----
+L.     ERBB3    -->     SHC2     ETV6_RUNX1
+H.     EGFR     -->     SHC2     Hypo
+L.     MTOR     -->  RPS6KB1     Hypo
+L.     MAP2K1   -->    MAPK1     MLL
+L.     ARAF     -->   MAP2K1     Hypo
+L.     MAPK1    -->     ELK1     Hypo
+L.     AREG     -->     EGFR     T-ALL
+L.     ERBB3    -->   PIK3R5     TCF3-PBX1
+L.     SHC2     -->     GRB2     Hypo
+
+wnt
+---
+L.     GSK3B    -->   CTNNB1     MLL
+L.     FBXW11   -->   CTNNB1     MLL
+L.     NLK      -->     LEF1     Ph
+H.     RUVBL1   -->   CTNNB1     MLL
+H.     PRICKLE1 -->   VANGL2     Hypo
+L.     SENP2    -->     DVL1     Hypo
+L.     AXIN1    -->     DVL1     Ph
+L.     LEF1     -->     MMP7     MLL
+L.     SFRP1    -->    WNT16     TCF3-PBX1
+L.     FZD10    -->    PLCB1     TCF3-PBX1
+L.     CER1     -->    WNT16     TCF3-PBX1
+L.     PLCB1    -->     CHP1     T-ALL
+L.     PRKACA   -->    GSK3B     Hypo
+L.     APC2     -->     DVL1     ETV6_RUNX1
+

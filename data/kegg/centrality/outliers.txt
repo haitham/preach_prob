@@ -1,0 +1,83 @@
+apoptosis
+---------
+H.     BID          Hyperdiploid
+H.     CYCS         Hyperdiploid
+H.     CASP8        Hyperdiploid
+L.     CASP7        Ph
+L.     RIPK1        ETV6_RUNX1
+L.     BCL2         Hypo
+
+cellcycle
+---------
+H.     CDK1         Hypo
+H.     PLK1         Hypo
+H.     CDK1         Hypo
+H.     FZR1         Hypo
+L.     CDC45        Ph
+
+p53
+---
+H.     GADD45G      MLL
+L.     SFN          MLL
+H.     CDK1         Hypo
+L.     BID          T-ALL
+H.     TNFRSF10B     Ph
+H.     CASP8        Ph
+L.     CASP3        T-ALL
+L.     DDB2         T-ALL
+L.     CD82         Hypo
+
+ccc
+---
+H.     F11          Hypo
+H.     PLAT         Hyperdiploid
+H.     F9           Hypo
+H.     THBD         TCF3-PBX1
+H.     PROC         TCF3-PBX1
+H.     SERPINE1     TCF3-PBX1
+H.     SERPIND1     TCF3-PBX1
+H.     F2           TCF3-PBX1
+
+chemokine
+---------
+H.     ELMO1        Ph
+H.     BCAR1        Ph
+H.     FGR          TCF3-PBX1
+H.     PTK2         Ph
+H.     PREX1        Hypo
+L.     PLCB1        Hypo
+L.     NCF1         Hypo
+L.     PRKCB        Hypo
+H.     MAPK1        Ph
+H.     PIK3R5       MLL
+
+nfkappab
+--------
+H.     TRAF2        TCF3-PBX1
+H.     RIPK1        Ph
+H.     TICAM2       Ph
+H.     IL1B         Ph
+H.     IL1R1        Ph
+H.     IRAK1        Ph
+L.     RIPK1        Hypo
+H.     CCL4L2       TCF3-PBX1
+H.     CCL21        Ph
+H.     VCAM1        Hypo
+
+erbb
+----
+H.     SHC2         ETV6_RUNX1
+L.     CRK          T-ALL
+L.     ABL1         T-ALL
+H.     MYC          Hypo
+
+wnt
+---
+H.     PRICKLE1     Ph
+L.     MMP7         MLL
+L.     SFRP1        TCF3-PBX1
+L.     CER1         TCF3-PBX1
+H.     FRAT1        Ph
+L.     WNT16        TCF3-PBX1
+H.     RAC1         TCF3-PBX1
+

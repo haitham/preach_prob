@@ -1,0 +1,31 @@
+producer_class	xtools.gsea.Gsea
+producer_timestamp	1404230683979
+param	collapse	false
+param	cls	D:\Workspace\preach_prob\data\kegg\gsea\labels_Ph.cls#Ph_versus_OTHERS
+param	plot_top_x	20
+param	norm	meandiv
+param	save_rnd_lists	false
+param	median	false
+param	num	100
+param	scoring_scheme	weighted
+param	make_sets	true
+param	mode	Max_probe
+param	gmx	D:\Workspace\preach_prob\data\kegg\gsea\centrality_outliers\genelists_Ph.gmt
+param	gui	false
+param	metric	Signal2Noise
+param	rpt_label	Ph
+param	help	false
+param	order	descending
+param	out	D:\Workspace\preach_prob\data\kegg\gsea\centrality_outliers
+param	permute	phenotype
+param	rnd_type	no_balance
+param	set_min	7
+param	include_only_symbols	true
+param	sort	real
+param	rnd_seed	timestamp
+param	nperm	1000
+param	zip_report	false
+param	set_max	500
+param	res	D:\Workspace\preach_prob\data\kegg\gsea\expr_all.gct
+
+file	D:\Workspace\preach_prob\data\kegg\gsea\centrality_outliers\Ph.Gsea.1404230683979\index.html
