@@ -49,4 +49,5 @@ open "#{dataset}/centralgram.m", "w" do |fout|
 	fout.puts "ColumnLabels = {#{col_labels}}"
 	fout.puts "Matrix = [#{matrix}]"
 	fout.puts "CG = clustergram(Matrix, 'RowLabels', RowLabels, 'ColumnLabels', ColumnLabels, 'Symmetric', false, 'ColorMap', colormap('JET'))"
+	fout.puts "plot(CG)"
 end

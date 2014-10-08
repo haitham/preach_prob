@@ -18,4 +18,5 @@ open "#{subdir}/clusterprob.m", "w" do |fout|
 	fout.puts "RowLabels = {#{row_labels}}"
 	fout.puts "Matrix = [#{matrix}]"
 	fout.puts "CG = clustergram(Matrix, 'RowLabels', RowLabels, 'Symmetric', false, 'ColorMap', colormap('JET'))"
+	fout.puts "plot(CG)"
 end
