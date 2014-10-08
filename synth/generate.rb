@@ -1,4 +1,4 @@
-edges_per_node, steps, step_size, versions = ARGV.map{|a| a.to_i}
+edges_per_node, min_size, steps, step_size, versions = ARGV.map{|a| a.to_i}
 
 @connected = {}
 @edges = []
@@ -67,6 +67,7 @@ end
 				end
 			end
 		end
-		output "BA_#{edges_per_node}_#{(step+1)*step_size}_#{version}"
+		size = (step+1)*step_size
+		output "BA_#{edges_per_node}_#{size}_#{version}" if size >= min_size
 	end
 end
